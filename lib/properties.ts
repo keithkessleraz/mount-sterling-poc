@@ -11,6 +11,7 @@ export const properties: Property[] = [
     description: "Perfect for a boutique shop, coffee bar, or professional office. Features exposed brick and large storefront windows.",
     features: ["Exposed brick", "Storefront windows", "High ceilings", "Updated utilities"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=800&q=80",
   },
   {
     id: "commercial-b",
@@ -21,6 +22,7 @@ export const properties: Property[] = [
     description: "Ideal for restaurants, retail, or creative studios. Spacious layout with excellent visibility.",
     features: ["Open floor plan", "Street-level access", "Updated HVAC", "Original hardwood"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80",
   },
   {
     id: "commercial-c",
@@ -31,6 +33,7 @@ export const properties: Property[] = [
     description: "Premium commercial space suitable for larger retail operations or multiple business uses.",
     features: ["Expansive layout", "Multiple entrances", "Loading access", "High foot traffic"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80",
   },
   {
     id: "theater",
@@ -41,6 +44,7 @@ export const properties: Property[] = [
     description: "Beautifully restored theater space with stage, perfect for events, performances, and community gatherings.",
     features: ["Stage and backstage", "Theater seating", "Historic character", "Event-ready"],
     status: "coming_soon",
+    image: "https://images.unsplash.com/photo-1503095396549-807759245b35?w=800&q=80",
   },
   // Residential Spaces
   {
@@ -53,6 +57,7 @@ export const properties: Property[] = [
     description: "Charming one-bedroom with modern amenities and historic character. Downtown living at its finest.",
     features: ["Updated kitchen", "In-unit laundry", "Exposed brick", "High ceilings"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80",
   },
   {
     id: "residential-1br-2",
@@ -64,6 +69,7 @@ export const properties: Property[] = [
     description: "Cozy one-bedroom featuring original architectural details and contemporary finishes.",
     features: ["Updated kitchen", "In-unit laundry", "Original woodwork", "Energy efficient"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
   },
   {
     id: "residential-1br-3",
@@ -75,6 +81,7 @@ export const properties: Property[] = [
     description: "Bright one-bedroom apartment with excellent natural light and modern conveniences.",
     features: ["Large windows", "In-unit laundry", "Modern bath", "Hardwood floors"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
   },
   {
     id: "residential-1br-4",
@@ -86,6 +93,7 @@ export const properties: Property[] = [
     description: "Thoughtfully designed one-bedroom combining historic charm with modern comfort.",
     features: ["Updated kitchen", "In-unit laundry", "Walk-in closet", "Quiet location"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?w=800&q=80",
   },
   {
     id: "residential-2br-1",
@@ -97,6 +105,7 @@ export const properties: Property[] = [
     description: "Spacious two-bedroom apartment ideal for roommates or small families. Premium finishes throughout.",
     features: ["Updated kitchen", "In-unit laundry", "Two full baths", "Large living area"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
   },
   {
     id: "residential-2br-2",
@@ -108,5 +117,6 @@ export const properties: Property[] = [
     description: "Beautiful two-bedroom with original character and all the modern amenities you need.",
     features: ["Updated kitchen", "In-unit laundry", "Master suite", "Exposed brick"],
     status: "available",
+    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
   },
 ]

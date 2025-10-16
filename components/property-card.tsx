@@ -23,19 +23,29 @@ export function PropertyCard({ property, onContact }: PropertyCardProps) {
     "Leased"
 
   return (
-    <Card className="flex flex-col h-full hover:shadow-lg transition-shadow">
-      <CardHeader>
-        <div className="flex items-start justify-between mb-2">
-          <div className="flex items-center gap-2">
-            {icon}
-            <Badge variant={statusVariant} className="text-xs">
+    <Card className="flex flex-col h-full hover:shadow-lg transition-shadow overflow-hidden">
+      {/* Property Image */}
+      {property.image && (
+        <div className="relative h-48 w-full overflow-hidden bg-slate-200">
+          <img
+            src={property.image}
+            alt={property.name}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute top-3 right-3 flex gap-2">
+            <Badge variant={statusVariant} className="text-xs shadow-md">
               {statusLabel}
             </Badge>
           </div>
-          <Badge variant="outline" className="capitalize">
-            {property.type}
-          </Badge>
+          <div className="absolute top-3 left-3">
+            <Badge variant="outline" className="capitalize bg-white/90 backdrop-blur text-xs shadow-md">
+              {property.type}
+            </Badge>
+          </div>
         </div>
+      )}
+
+      <CardHeader>
         <CardTitle className="text-xl">{property.name}</CardTitle>
         <CardDescription className="line-clamp-2">{property.description}</CardDescription>
       </CardHeader>

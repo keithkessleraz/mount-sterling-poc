@@ -10,41 +10,52 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-900 dark:to-slate-800 py-20 md:py-32">
-      <div className="container mx-auto px-4">
+    <section className="relative py-20 md:py-32 overflow-hidden">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=1920&q=80')",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-900/85 via-slate-900/75 to-slate-800/85" />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-white/90 text-slate-900 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <Sparkles className="h-4 w-4" />
             Historic Downtown Redevelopment
           </div>
 
           {/* Main Heading */}
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6 text-white">
             Welcome to Downtown
             <br />
-            <span className="text-primary">Mount Sterling</span>
+            <span className="text-amber-400">Mount Sterling</span>
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-200 mb-8 max-w-2xl mx-auto">
             Experience the perfect blend of historic charm and modern living.
             Three beautifully restored buildings offering unique commercial spaces
             and residential apartments in the heart of Mount Sterling, Ohio.
           </p>
 
           {/* Key Features */}
-          <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm md:text-base">
+          <div className="flex flex-wrap justify-center gap-6 mb-10 text-sm md:text-base text-white">
             <div className="flex items-center gap-2">
-              <Home className="h-5 w-5 text-primary" />
+              <Home className="h-5 w-5 text-amber-400" />
               <span>9 Premium Spaces</span>
             </div>
             <div className="flex items-center gap-2">
-              <MapPin className="h-5 w-5 text-primary" />
+              <MapPin className="h-5 w-5 text-amber-400" />
               <span>Historic Downtown Location</span>
             </div>
             <div className="flex items-center gap-2">
-              <Sparkles className="h-5 w-5 text-primary" />
+              <Sparkles className="h-5 w-5 text-amber-400" />
               <span>Below-Market Rents</span>
             </div>
           </div>
@@ -69,20 +80,20 @@ export function HeroSection() {
           </div>
 
           {/* Location Highlights */}
-          <div className="mt-16 pt-8 border-t border-slate-200 dark:border-slate-700">
-            <p className="text-sm text-muted-foreground mb-4">Prime Location Benefits</p>
+          <div className="mt-16 pt-8 border-t border-white/20">
+            <p className="text-sm text-slate-300 mb-4">Prime Location Benefits</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div className="p-4 bg-background rounded-lg shadow-sm">
-                <p className="font-medium mb-1">Deer Creek State Park</p>
-                <p className="text-muted-foreground">Walking distance</p>
+              <div className="p-4 bg-white/95 backdrop-blur rounded-lg shadow-lg">
+                <p className="font-medium mb-1 text-slate-900">Deer Creek State Park</p>
+                <p className="text-slate-600">Walking distance</p>
               </div>
-              <div className="p-4 bg-background rounded-lg shadow-sm">
-                <p className="font-medium mb-1">Honda/Anduril Plants</p>
-                <p className="text-muted-foreground">15 minutes away</p>
+              <div className="p-4 bg-white/95 backdrop-blur rounded-lg shadow-lg">
+                <p className="font-medium mb-1 text-slate-900">Honda/Anduril Plants</p>
+                <p className="text-slate-600">15 minutes away</p>
               </div>
-              <div className="p-4 bg-background rounded-lg shadow-sm">
-                <p className="font-medium mb-1">Historic Theater</p>
-                <p className="text-muted-foreground">Event space included</p>
+              <div className="p-4 bg-white/95 backdrop-blur rounded-lg shadow-lg">
+                <p className="font-medium mb-1 text-slate-900">Historic Theater</p>
+                <p className="text-slate-600">Event space included</p>
               </div>
             </div>
           </div>

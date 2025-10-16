@@ -11,4 +11,5 @@ export interface Property {
   features: string[]
   status: PropertyStatus
   bedrooms?: number
+  image?: string
 }
