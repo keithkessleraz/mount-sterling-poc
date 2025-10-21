@@ -1,23 +1,34 @@
 # Repository Guidelines
 
-## Project Structure & Module Organization
-App Router keeps layout and routing in `app/` (`layout.tsx`, `page.tsx`). Feature sections in `components/` compose smaller primitives from `components/ui`. Domain data, types, and helpers live in `lib/` (`properties.ts`, `types.ts`, `utils.ts`). Add static assets to `public/` and reference them with `/asset.ext`.
+## Purpose
+This brief keeps GPT Codex and Claude Code aligned on the Mount Sterling redevelopment site—a Next.js App Router proof of concept spotlighting mixed-use inventory and seeding the future Payload CMS.
 
-## Build, Test, and Development Commands
-- `npm install`: install dependencies before any workflow.
-- `npm run dev`: launch the local dev server at `http://localhost:3000`.
-- `npm run build`: create the optimized production bundle used for deployments.
-- `npm start`: serve the last build locally (mirrors the Render production command).
-- `npm run lint`: apply Next.js + TypeScript ESLint rules; pass `-- --fix` to auto-fix safe issues.
+## Tech Stack & Structure
+Active frontend tooling: Next.js 14, TypeScript, Tailwind CSS, Shadcn/ui, React Hook Form, Zod, Lucide. Roadmap services: Payload CMS 2.0, PostgreSQL, Resend/SendGrid, Cloudinary. Layout and routing live in `app/`; feature sections in `components/` and `components/ui/`; typed data and helpers in `lib/`. Place static assets in `public/` and reference them with `/asset.ext`.
 
-## Coding Style & Naming Conventions
-Use TypeScript and favor small functional components. Name React components with PascalCase (`AboutSection`, `PropertyCard`) and utilities with camelCase (`utils.ts`). Keep Tailwind utilities inside `className` strings; reuse patterns with the `cn` helper. Follow the repo defaults (2-space indent, double quotes) and run `npm run lint -- --fix` before committing. Comment only when behavior is non-obvious.
+## Key Commands
+- `npm install`: install dependencies.
+- `npm run dev`: serve the app at `http://localhost:3000`.
+- `npm run build`: produce the optimized bundle used by Render.
+- `npm start`: run the latest build locally.
+- `npm run lint`: apply ESLint (append `-- --fix` to auto-fix).
 
-## Testing Guidelines
-No automated suite exists yet, so manually verify form validation, property filtering, and responsive breakpoints before review. When adding tests, prefer Jest with React Testing Library or Playwright; name files `*.test.ts(x)` alongside the module or in `__tests__/`. Add an `npm test` script and document setup. Always run `npm run lint` plus any new tests before pushing.
+## Coding Style & Workflow
+Write TypeScript, keep components small, and compose Tailwind utilities inside `className` with `cn` from `lib/utils.ts`. Name React files and components in PascalCase, utilities in camelCase, and follow 2-space indent with double quotes. Use imperative commit subjects such as `Add property filter chips`. Pull requests must summarize scope, flag environment changes, attach desktop/mobile screenshots for UI tweaks, highlight review hotspots, and link issues when available.
 
-## Commit & Pull Request Guidelines
-Write concise, imperative commit subjects (e.g., `Add property filter chips`) and group related work together. In pull requests, summarize scope, note env changes, and attach desktop/mobile screenshots for UI updates. Reference issues when relevant and flag areas needing review. Sync with `main` and ensure lint—and any new tests—pass before requesting approval.
+## Testing & Quality
+No automated suite exists yet—manually validate property filtering, contact form success and error states, and responsive breakpoints. When adding coverage, use Jest with React Testing Library or Playwright; store specs as `*.test.ts(x)` beside the module or in `__tests__/`, wire an `npm test` script, and document setup. Always run `npm run lint` plus any new tests before pushing.
 
-## Environment & Deployment Notes
-Local development works without env vars, but production builds expect `NEXT_PUBLIC_SITE_URL` (see `README.md`). Render deploys run `npm run build` then `npm start`; mirror that locally before shipping. Keep secrets out of git—store overrides in `.env.local` and share values through the team secret manager.
+## Deployment & Environment
+Local development runs without env vars, but production expects:
+```env
+NEXT_PUBLIC_SITE_URL=https://downtownmountsterling.com
+RESEND_API_KEY=...
+DATABASE_URL=postgresql://...
+PAYLOAD_SECRET=...
+CLOUDINARY_URL=cloudinary://...
+```
+Keep secrets in `.env.local` (git ignored) and share through the team manager. Render deploys call `npm run build` then `npm start`; mirror that flow locally prior to shipping.
+
+## Roadmap & Collaboration
+Phase 0 delivers the landing page with hero, property grid (3 commercial suites, 6 residential units, theater space), and contact form. Phase 1 adds admin listings, lead capture, and newsletter signup. Phase 2 targets floor plans, virtual tours, event calendar, analytics, and SEO. Maintain the “historic meets modern” aesthetic with high-quality imagery, community storytelling, and clear CTAs. Coordinate GPT Codex and Claude through this brief, log open tasks in PRs, and cross-check each contribution with linting and manual QA before merge.

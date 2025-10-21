@@ -1,136 +1,34 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+## Purpose
+Use this brief when Claude Code collaborates with GPT Codex on the Mount Sterling redevelopment site—a Next.js App Router proof of concept spotlighting mixed-use inventory and laying groundwork for Payload CMS.
 
-## Project Overview
+## Tech Stack & Structure
+Active frontend tooling: Next.js 14, TypeScript, Tailwind CSS, Shadcn/ui, React Hook Form, Zod, Lucide. Roadmap services: Payload CMS 2.0, PostgreSQL, Resend/SendGrid, Cloudinary. Layout and routing live in `app/`; feature sections in `components/` and `components/ui/`; typed data and helpers in `lib/`. Store static assets in `public/` and reference them with `/asset.ext`.
 
-This is the Mount Sterling downtown redevelopment website project - a Next.js application for showcasing commercial and residential properties in a historic building redevelopment in Mount Sterling, Ohio.
+## Key Commands
+- `npm install`: install dependencies.
+- `npm run dev`: serve the app at `http://localhost:3000`.
+- `npm run build`: produce the optimized bundle used by Render.
+- `npm start`: run the latest build locally.
+- `npm run lint`: apply ESLint (append `-- --fix` to auto-fix).
 
-## Technical Stack
+## Coding Style & Workflow
+Write TypeScript, keep components small, and compose Tailwind utilities inside `className` with `cn` from `lib/utils.ts`. Name React files and components in PascalCase, utilities in camelCase, and follow 2-space indent with double quotes. Use imperative commit subjects such as `Add property filter chips`. Pull requests must summarize scope, flag environment changes, attach desktop/mobile screenshots for UI tweaks, highlight review hotspots, and link issues when available.
 
-**Frontend:**
-- Next.js 14 (App Router)
-- Tailwind CSS + Shadcn/ui components
-- React Hook Form + Zod validation
-- TypeScript
+## Testing & Quality
+No automated suite exists yet—manually validate property filtering, contact form success and error states, and responsive breakpoints. When adding coverage, use Jest with React Testing Library or Playwright; store specs as `*.test.ts(x)` beside the module or in `__tests__/`, wire an `npm test` script, and document setup. Always run `npm run lint` plus any new tests before pushing.
 
-**Backend:**
-- Payload CMS 2.0 for content management
-- PostgreSQL database
-- Resend/SendGrid for email
-- Cloudinary for file storage
-
-**Deployment:**
-- Render (app + database)
-- GitHub Actions for CI/CD
-
-## Development Commands
-
-Since this is a new project, use these commands based on the PRD specifications:
-
-```bash
-# Initial setup (if starting from scratch)
-npx create-next-app@latest . --typescript --tailwind
-npm install @radix-ui/react-slot class-variance-authority clsx tailwind-merge
-npm install react-hook-form @hookform/resolvers zod lucide-react
-
-# Shadcn/ui setup
-npx shadcn-ui@latest init
-npx shadcn-ui@latest add button card form input
-
-# For full project with Payload CMS
-npx create-payload-app@latest . --template=next
-npm install @react-email/components resend embla-carousel-react mapbox-gl
-
-# Standard development commands
-npm run dev         # Start development server
-npm run build       # Build for production
-npm run start       # Start production server
-npm run lint        # Run ESLint
-npm run type-check  # Run TypeScript checks
-```
-
-## Architecture & Data Models
-
-### Core Content Types (Payload CMS)
-
-**Property Schema:**
-- Type: commercial | residential
-- Square footage, monthly rent, status
-- Images, floor plans, virtual tour URLs
-- Combinable spaces support
-
-**Event Schema:**
-- Community events, construction updates
-- Category: community | construction | tenant
-- RSVP functionality
-
-**Business Directory Schema:**
-- Local business listings
-- Tenant vs. community business distinction
-
-**Lead Capture Schema:**
-- Property interest tracking
-- Multiple contact sources
-
-## Key Features
-
-### Phase 0 (POC - 24 hours)
-- Single landing page with hero section
-- Property grid (3 commercial, 6 residential spaces)
-- Basic contact form
-- Mobile responsive
-
-### Phase 1 (MVP - Week 1-2)
-- Property listings with admin interface
-- Lead capture and tour scheduling
-- Email newsletter signup
-
-### Phase 2 (Full Launch - Week 3-4)
-- Floor plans and virtual tours
-- Event calendar and business directory
-- SEO optimization and analytics
-
-## Property Details
-
-**Commercial Spaces:**
-- Space A: 650 sq ft - $595/month
-- Space B: 1,200 sq ft - $995/month  
-- Space C: 2,100 sq ft - $1,495/month
-- Theater: Event space with stage
-
-**Residential Spaces:**
-- 1BR Units (4): 750 sq ft - $795/month
-- 2BR Units (2): 1,100 sq ft - $995/month
-
-## Environment Variables
-
+## Deployment & Environment
+Local development runs without env vars, but production expects:
 ```env
-RESEND_API_KEY=your_key
 NEXT_PUBLIC_SITE_URL=https://downtownmountsterling.com
+RESEND_API_KEY=...
 DATABASE_URL=postgresql://...
-PAYLOAD_SECRET=your_secret
+PAYLOAD_SECRET=...
 CLOUDINARY_URL=cloudinary://...
 ```
+Keep secrets in `.env.local` (git ignored) and share through the team manager. Render deploys call `npm run build` then `npm start`; mirror that flow locally prior to shipping.
 
-## Deployment
-
-- **Platform:** Render (both app and PostgreSQL database)
-- **Domain:** downtownmountsterling.com
-- **Build Command:** `npm run build`
-- **Start Command:** `npm start`
-
-## Design Principles
-
-- Historic meets modern aesthetic
-- Mobile-first responsive design
-- High-quality photography focus
-- Community-centered messaging
-- Clear CTAs throughout
-
-## Notes
-
-- Below-market rents with owner support model
-- Historic building preservation focus
-- Community engagement is key to success
-- Phased development approach for quick ROI
+## Roadmap & Collaboration
+Phase 0 delivers the landing page with hero, property grid (3 commercial suites, 6 residential units, theater space), and contact form. Phase 1 adds admin listings, lead capture, and newsletter signup. Phase 2 targets floor plans, virtual tours, event calendar, analytics, and SEO. Maintain the “historic meets modern” aesthetic with high-quality imagery, community storytelling, and clear CTAs. When partnering with GPT Codex, surface assumptions in PR notes, track open tasks, and cross-check contributions with linting and manual QA before merge.
